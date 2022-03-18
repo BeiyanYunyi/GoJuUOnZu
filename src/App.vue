@@ -1,32 +1,27 @@
 <template>
-  <div :class="$style.container">
-    <table-row v-for="(row, index) in goJuUOn" :key="index" :row-items="row" />
-  </div>
+  <h1 class="text-3xl font-bold text-neutral-100" :class="$style.mainTitle">五十音テスト</h1>
+  <app-navigation />
+  <router-view class="text-neutral-100" />
 </template>
 
 <script setup lang="ts">
-import goJuUOn from './goJuUOn';
-import TableRow from './components/TableRow.vue';
+import { RouterView } from 'vue-router';
+import AppNavigation from './components/AppNavigation.vue';
 </script>
 
 <style>
-#app {
-  margin: -8px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0;
+  background-color: #161616;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-body {
-  background-color: #161616;
 }
 </style>
-
 <style module>
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+.mainTitle {
+  text-align: center;
 }
 </style>

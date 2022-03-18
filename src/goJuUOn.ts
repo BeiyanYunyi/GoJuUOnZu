@@ -71,4 +71,9 @@ const goJuUOn: [string, string, string][][] = [
   ],
 ];
 
+// Use concat instead of flat to increase compatibility.
+export const flattenedGoJuUOn = ([] as [string, string, string][])
+  .concat(...goJuUOn)
+  .filter((ary) => ary[0]);
+
 export default goJuUOn;
