@@ -27,7 +27,7 @@
     </transition>
     <p v-if="showPlaceHolder" style="opacity: 0">&emsp;</p>
     <form class="flex flex-col items-center gap-2" @submit="handleSubmit">
-      <input v-model="answer" style="background-color: rgba(0, 0, 0, 0.9)" />
+      <input v-model="answer" class="questionInput" />
       <div class="flex flex-row justify-center gap-4">
         <button type="submit" :disabled="!showPlaceHolder">
           <app-card :hoverable="showPlaceHolder">Submit</app-card>
@@ -100,6 +100,17 @@ const hide = () => {
   to {
     opacity: 0;
   }
+}
+.questionInput {
+  z-index: 1;
+  background-color: #161616;
+  padding: 8px;
+  width: fit-content;
+  border-radius: 0.5rem;
+  box-shadow: inset 0.2rem 0.2rem 1rem #090909, inset -0.2rem -0.2rem 1rem #2c2c2c;
+}
+.questionInput:focus {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .animate-enter-active {
   animation-name: show;

@@ -15,7 +15,7 @@ defineProps<{ hoverable?: boolean }>();
   box-shadow: 0.2rem 0.2rem 1rem #090909, -0.2rem -0.2rem 1rem #2c2c2c;
 }
 .appCardHoverable:active {
-  box-shadow: 0.2rem 0.2rem 1rem #2c2c2c, -0.2rem -0.2rem 1rem #090909;
+  box-shadow: inset 0.2rem 0.2rem 1rem #090909, inset -0.2rem -0.2rem 1rem #2c2c2c;
   transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 </style>
