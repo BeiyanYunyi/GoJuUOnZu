@@ -2,28 +2,26 @@
   <div class="flex justify-center">
     <div class="flex flex-col items-center gap-4">
       <test-card :data="value.map((idx) => flattenedGoJuUOn[idx])" />
-      <n-switch v-model:value="showConfig">
-        <template #checked>Close</template>
-        <template #unchecked>Config</template>
-      </n-switch>
-      <n-collapse-transition :show="showConfig">
-        <n-transfer
-          v-model:value="value"
-          :options="options"
-          source-title="Questions"
-          target-title="Questions that will be shown"
-        />
-      </n-collapse-transition>
+      <app-card hoverable @click="showConfig = !showConfig">
+        {{ showConfig ? 'Hide' : 'Config' }}
+      </app-card>
+      <div v-if="showConfig" :class="$style.scrollContainer">
+        <form class="flex flex-col">
+          <label v-for="option in options" :key="option.value" style="padding: 4px">
+            <input v-model="value" type="checkbox" :value="option.value" />{{ option.label }}
+          </label>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { NTransfer, TransferOption, NSwitch, NCollapseTransition } from 'naive-ui';
 import { onBeforeMount, ref, watch } from 'vue';
+import AppCard from '../components/AppCard.vue';
 import TestCard from '../components/TestCard.vue';
 import { flattenedGoJuUOn } from '../goJuUOn';
 
-const options: TransferOption[] = flattenedGoJuUOn.map((item, i) => ({
+const options = flattenedGoJuUOn.map((item, i) => ({
   label: item.join(' '),
   value: i,
 }));
@@ -37,4 +35,10 @@ watch(value, () => {
   localStorage.setItem('questions', JSON.stringify(value.value));
 });
 </script>
-<style scoped></style>
+<style module>
+.scrollContainer {
+  height: 50vh;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+</style>
