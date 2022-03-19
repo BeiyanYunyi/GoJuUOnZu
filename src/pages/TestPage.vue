@@ -7,7 +7,12 @@
         <template #unchecked>Config</template>
       </n-switch>
       <n-collapse-transition :show="showConfig">
-        <n-transfer v-model:value="value" :options="options" />
+        <n-transfer
+          v-model:value="value"
+          :options="options"
+          source-title="Questions"
+          target-title="Questions that will be shown"
+        />
       </n-collapse-transition>
     </div>
   </div>
