@@ -107,10 +107,12 @@ const hide = () => {
   padding: 8px;
   width: fit-content;
   border-radius: 0.5rem;
-  box-shadow: inset 0.2rem 0.2rem 0.5rem #090909, inset -0.2rem -0.2rem 0.5rem #2c2c2c;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0.1rem 0.1rem 0.25rem #090909, inset -0.1rem -0.1rem 0.25rem #2c2c2c;
 }
 .questionInput:focus {
   outline: none;
+  box-shadow: inset 0.2rem 0.2rem 0.25rem #090909, inset -0.2rem -0.2rem 0.25rem #2c2c2c;
 }
 .animate-enter-active {
   animation-name: show;
