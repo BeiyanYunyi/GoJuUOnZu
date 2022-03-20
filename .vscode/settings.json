@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "vite.buildCommand": "pnpm build",
+    "vite.devCommand": "pnpm dev",
+    "vite.port": 3000,
+    "vite.browserType": "system"
+}
