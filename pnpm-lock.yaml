@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@fontsource/roboto': ^4.5.3
   '@typescript-eslint/eslint-plugin': ^5.14.0
   '@typescript-eslint/parser': ^5.14.0
   '@vicons/fa': ^0.12.0
@@ -26,6 +27,7 @@ specifiers:
   vue-tsc: ^0.32.1
 
 dependencies:
+  '@fontsource/roboto': 4.5.3
   '@vicons/fa': 0.12.0
   '@vicons/utils': 0.1.4_vue@3.2.31
   vue: 3.2.31
@@ -129,6 +131,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/roboto/4.5.3:
+    resolution: {integrity: sha512-NUvBTj332dFRdiVkLlavXbDGoD2zyyeGYmMyrXOnctg/3e4pq95+rJgNfUP+k4v8UBk2L1aomGw9dDjbRdAmTg==}
+    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
