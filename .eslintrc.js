@@ -1,5 +1,11 @@
 module.exports = {
-  extends: ['airbnb-base', 'airbnb-typescript', 'prettier', 'plugin:vue/vue3-recommended'],
+  extends: [
+    'airbnb-base',
+    'airbnb-typescript',
+    'prettier',
+    'plugin:vue/vue3-recommended',
+    'plugin:import/typescript',
+  ],
   plugins: ['@typescript-eslint', 'prettier', 'vue'],
   env: {
     // 你的环境变量（包含多个预定义的全局变量）

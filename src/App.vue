@@ -8,12 +8,14 @@
   </h1>
   <app-navigation />
   <router-view class="text-neutral-100" />
+  <reload-prompt />
 </template>
 
 <script setup lang="ts">
 import '@fontsource/roboto/latin-400.css';
 import { RouterView } from 'vue-router';
 import AppNavigation from './components/AppNavigation.vue';
+import ReloadPrompt from './components/ReloadPrompt.vue';
 </script>
 
 <style>
