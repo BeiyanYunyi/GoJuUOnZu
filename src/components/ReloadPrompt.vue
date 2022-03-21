@@ -1,7 +1,7 @@
 <template>
-  <app-card v-if="offlineReady || needRefresh" class="pwa-toast">
+  <app-card v-if="offlineReady || needRefresh" :class="$style['pwa-toast']">
     <div role="alert">
-      <div class="message">
+      <div :class="$style.message">
         <span v-if="offlineReady"> App ready to work offline </span>
         <span v-else> New content available, click on reload button to update. </span>
       </div>
@@ -14,7 +14,9 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line import/no-unresolved
 import { useRegisterSW } from 'virtual:pwa-register/vue';
+import { watch } from 'vue';
 import AppCard from './AppCard.vue';
 
 const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW();
@@ -23,9 +25,17 @@ const close = async () => {
   offlineReady.value = false;
   needRefresh.value = false;
 };
+
+watch([offlineReady], () => {
+  if (offlineReady.value) {
+    setTimeout(() => {
+      close();
+    }, 3000);
+  }
+});
 </script>
 
-<style scoped>
+<style module>
 .pwa-toast {
   position: fixed;
   right: 0;
