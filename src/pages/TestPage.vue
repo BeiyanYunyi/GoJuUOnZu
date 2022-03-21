@@ -2,11 +2,7 @@
   <div class="flex justify-center">
     <div class="flex flex-col items-center gap-4">
       <test-card :data="value.map((idx) => flattenedGoJuUOn[idx])" />
-      <button type="button" @click="showConfig = !showConfig">
-        <app-card hoverable>
-          {{ showConfig ? 'Hide' : 'Config' }}
-        </app-card>
-      </button>
+      <app-switch v-model="showConfig" :label="showConfig ? 'Hide' : 'Config'" />
       <app-card v-if="showConfig" :class="$style.scrollContainer">
         <form class="flex flex-col">
           <label v-for="option in options" :key="option.value" style="padding: 4px">
@@ -22,6 +18,7 @@ import { onBeforeMount, ref, watch } from 'vue';
 import AppCard from '../components/AppCard.vue';
 import TestCard from '../components/TestCard.vue';
 import { flattenedGoJuUOn } from '../goJuUOn';
+import AppSwitch from '../components/AppSwitch.vue';
 
 const options = flattenedGoJuUOn.map((item, i) => ({
   label: item.join(' '),

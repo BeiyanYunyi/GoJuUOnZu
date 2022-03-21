@@ -23,6 +23,7 @@ import ReloadPrompt from './components/ReloadPrompt.vue';
 @tailwind components;
 @tailwind utilities;
 body {
+  @apply text-neutral-100;
   margin: 0;
   background-color: #161616;
   -webkit-font-smoothing: antialiased;
