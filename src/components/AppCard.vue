@@ -1,12 +1,18 @@
 <template>
-  <div :class="{ appCard: true, appCardHoverable: hoverable, appCardPressed: pressed }">
+  <div
+    :class="{
+      [$style.appCard]: true,
+      [$style.appCardHoverable]: hoverable,
+      [$style.appCardPressed]: pressed,
+    }"
+  >
     <slot />
   </div>
 </template>
 <script lang="ts" setup>
 defineProps<{ hoverable?: boolean; pressed?: boolean }>();
 </script>
-<style scoped>
+<style module>
 .appCard {
   @apply text-neutral-100 tracking-wide;
   padding: 8px;

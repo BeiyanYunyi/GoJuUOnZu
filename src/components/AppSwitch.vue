@@ -4,14 +4,17 @@
     class="inline-flex flex-row items-center gap-2"
     @click="$emit('update:modelValue', !modelValue)"
   >
-    <div :class="$style.innerContainer1">
-      <div :class="{ innerContainer2: true, innerContainer2Active: modelValue }"></div>
+    {{ leftLabel }}
+    <div :class="{ [$style.innerContainer1]: true, [$style.innerContainer1Active]: modelValue }">
+      <div
+        :class="{ [$style.innerContainer2]: true, [$style.innerContainer2Active]: modelValue }"
+      />
     </div>
     {{ label }}
   </label>
 </template>
 <script setup lang="ts">
-defineProps<{ modelValue: boolean; label?: string }>();
+defineProps<{ modelValue: boolean; label?: string; leftLabel?: string }>();
 defineEmits<{ (event: 'update:modelValue', value: boolean): void }>();
 </script>
 <style module>
@@ -29,10 +32,11 @@ defineEmits<{ (event: 'update:modelValue', value: boolean): void }>();
   height: 2rem;
   border-radius: 0.5rem;
   background: #161616;
+  box-shadow: inset 0.2rem 0.2rem 1rem #090909, inset -0.2rem -0.2rem 1rem #2c2c2c;
+}
+.innerContainer1Active {
   box-shadow: 0.2rem 0.2rem 1rem #090909, -0.2rem -0.2rem 1rem #2c2c2c;
 }
-</style>
-<style scoped>
 .innerContainer2 {
   display: inline-block;
   position: relative;
