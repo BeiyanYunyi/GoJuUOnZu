@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ appCard: true, appCardHoverable: hoverable }" class="tracking-wide">
+  <div :class="{ appCard: true, appCardHoverable: hoverable }">
     <slot />
   </div>
 </template>
@@ -8,6 +8,7 @@ defineProps<{ hoverable?: boolean }>();
 </script>
 <style scoped>
 .appCard {
+  @apply text-neutral-100 tracking-wide;
   padding: 8px;
   width: fit-content;
   border-radius: 0.5rem;

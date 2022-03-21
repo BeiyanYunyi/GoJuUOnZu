@@ -7,7 +7,7 @@
     五十音テスト
   </h1>
   <app-navigation />
-  <router-view class="text-neutral-100" />
+  <router-view />
   <reload-prompt />
 </template>
 

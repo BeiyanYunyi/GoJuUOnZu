@@ -8,6 +8,6 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({ targets: ['ie >= 8'], additionalLegacyPolyfills: ['regenerator-runtime/runtime'] }),
-    VitePWA({ includeAssets: ['**/*.png', '**/*.woff2'] }),
+    VitePWA({ includeAssets: ['**/*.png', '**/*.woff2'], devOptions: { enabled: true } }),
   ],
 });

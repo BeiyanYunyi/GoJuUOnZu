@@ -2,16 +2,18 @@
   <div class="flex justify-center">
     <div class="flex flex-col items-center gap-4">
       <test-card :data="value.map((idx) => flattenedGoJuUOn[idx])" />
-      <app-card hoverable @click="showConfig = !showConfig">
-        {{ showConfig ? 'Hide' : 'Config' }}
-      </app-card>
-      <div v-if="showConfig" :class="$style.scrollContainer">
+      <button type="button" @click="showConfig = !showConfig">
+        <app-card hoverable>
+          {{ showConfig ? 'Hide' : 'Config' }}
+        </app-card>
+      </button>
+      <app-card v-if="showConfig" :class="$style.scrollContainer">
         <form class="flex flex-col">
           <label v-for="option in options" :key="option.value" style="padding: 4px">
             <input v-model="value" type="checkbox" :value="option.value" />{{ option.label }}
           </label>
         </form>
-      </div>
+      </app-card>
     </div>
   </div>
 </template>
