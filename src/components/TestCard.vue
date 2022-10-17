@@ -49,10 +49,15 @@ import { Icon as VIcon } from '@vicons/utils';
 import { ref } from 'vue';
 import AppCard from './AppCard.vue';
 
+let randomNumAry = crypto.getRandomValues(new Uint8Array(1));
+const getRandomNum = () => {
+  randomNumAry = crypto.getRandomValues(randomNumAry);
+  return randomNumAry[0] / 255;
+};
 const props = defineProps<{ data: [string, string, string][] }>();
 const random = () =>
   props.data.length !== 0
-    ? props.data[Math.floor(Math.random() * props.data.length)]
+    ? props.data[Math.floor(getRandomNum() * props.data.length)]
     : ['あ', 'ア', 'a'];
 const target = ref(random());
 const answer = ref('');
