@@ -1,10 +1,10 @@
 <template>
-  <app-card class="flex flex-col gap-4 items-center">
+  <app-card class="flex flex-col gap-4 items-center font-sans">
     <h3 class="text-lg">
       Type the romanji of this {{ katakana ? 'katakana' : 'hiragana' }} below:
     </h3>
     <app-card>
-      <h3 class="text-3xl">{{ katakana ? target[1] : target[0] }}</h3>
+      <h3 class="text-3xl font-serif">{{ katakana ? target[1] : target[0] }}</h3>
     </app-card>
     <transition
       name="animate"
@@ -99,6 +99,7 @@ const hide = () => {
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: inset 0.1rem 0.1rem 0.25rem #090909, inset -0.1rem -0.1rem 0.25rem #2c2c2c;
 }
+
 .questionInput:focus {
   outline: none;
   box-shadow: inset 0.2rem 0.2rem 0.25rem #090909, inset -0.2rem -0.2rem 0.25rem #2c2c2c;
@@ -109,22 +110,27 @@ const hide = () => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes hide {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
 }
+
 .animate-enter-active {
   animation-name: show;
   animation-duration: 1s;
 }
+
 .animate-leave-active {
   animation-name: hide;
   animation-duration: 1s;

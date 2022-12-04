@@ -69,6 +69,13 @@ const goJuUOn: [string, string, string][][] = [
     ['', '', ''],
     ['を', 'ヲ', 'o'],
   ],
+  [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+    ['ん', 'ン', 'n'],
+  ],
 ];
 
 // Use concat instead of flat to increase compatibility.

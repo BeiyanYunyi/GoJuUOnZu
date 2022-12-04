@@ -1,7 +1,7 @@
 <template>
   <label
     :class="$style.label"
-    class="inline-flex flex-row items-center gap-2"
+    class="inline-flex flex-row items-center gap-2 font-sans"
     @click="$emit('update:modelValue', !modelValue)"
   >
     {{ leftLabel }}

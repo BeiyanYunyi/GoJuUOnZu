@@ -4,10 +4,10 @@
     style="margin-top: 1rem; margin-bottom: 1rem"
   >
     <router-link to="/">
-      <app-card hoverable>Home</app-card>
+      <app-card hoverable class="font-sans">Home</app-card>
     </router-link>
     <router-link to="/test">
-      <app-card hoverable>Test</app-card>
+      <app-card hoverable class="font-sans">Test</app-card>
     </router-link>
     <a href="https://github.com/lixiang810/GoJuUOnZu">
       <app-card hoverable>

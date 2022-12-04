@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="text-3xl font-bold text-neutral-100"
+    class="text-3xl font-bold text-neutral-100 font-serif"
     :class="$style.mainTitle"
     style="margin-top: 1rem"
   >
@@ -23,7 +23,7 @@ import ReloadPrompt from './components/ReloadPrompt.vue';
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply text-neutral-100;
+  @apply text-neutral-100 font-serif;
   margin: 0;
   background-color: #161616;
   -webkit-font-smoothing: antialiased;
