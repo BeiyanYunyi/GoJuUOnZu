@@ -1,12 +1,13 @@
 <template>
   <div class="flex justify-center">
     <div class="flex flex-col items-center gap-4">
-      <TestCard :data="value.map((idx) => flattenedGoJuUOn[idx])" />
+      <TestCard :data="questionConfig.map((idx) => flattenedGoJuUOn[idx])" />
       <AppSwitch v-model="showConfig" label="Config" />
       <AppCard v-if="showConfig" :class="$style.scrollContainer">
         <form class="flex flex-col">
           <label v-for="option in options" :key="option.value" style="padding: 4px">
-            <input v-model="value" type="checkbox" :value="option.value" />{{ option.label }}
+            <input v-model="questionConfig" type="checkbox" :value="option.value" />
+            {{ option.label }}
           </label>
         </form>
       </AppCard>
@@ -14,25 +15,18 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { onBeforeMount, ref, watch } from 'vue';
+import { ref } from 'vue';
 import AppCard from '../components/AppCard.vue';
+import AppSwitch from '../components/AppSwitch.vue';
 import TestCard from '../components/TestCard.vue';
 import { flattenedGoJuUOn } from '../goJuUOn';
-import AppSwitch from '../components/AppSwitch.vue';
+import questionConfig from '../utils/questionConfig';
 
 const options = flattenedGoJuUOn.map((item, i) => ({
   label: item.join(' '),
   value: i,
 }));
 const showConfig = ref(false);
-const value = ref<number[]>([0, 1, 2, 3, 4]);
-onBeforeMount(() => {
-  const valueInStorage = localStorage.getItem('questions');
-  if (valueInStorage) value.value = JSON.parse(valueInStorage);
-});
-watch(value, () => {
-  localStorage.setItem('questions', JSON.stringify(value.value));
-});
 </script>
 <style module>
 .scrollContainer {
