@@ -19,9 +19,6 @@ import ReloadPrompt from './components/ReloadPrompt.vue';
 </script>
 
 <style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 body {
   @apply text-neutral-100 font-serif;
   margin: 0;

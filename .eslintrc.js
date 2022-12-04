@@ -32,7 +32,7 @@ module.exports = {
     'vue/html-closing-bracket-newline': 0,
   },
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
     extraFileExtensions: ['.vue'],
     parser: '@typescript-eslint/parser',
   },

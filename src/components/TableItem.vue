@@ -9,7 +9,7 @@
       <div :class="$style.na">{{ hiragana }}</div>
       <div :class="$style.na">{{ katakana }}</div>
     </div>
-    <div v-if="showRooMaJi">{{ roomaji }}</div>
+    <div v-if="showRooMaJi" class="font-sans">{{ roomaji }}</div>
   </app-card>
 </template>
 <script setup lang="ts">
@@ -26,6 +26,7 @@ const showRooMaJi = ref(false);
   align-items: center;
   justify-content: center;
   margin: 0.25rem;
+  @apply font-serif;
 }
 .innerContainer {
   width: 100%;

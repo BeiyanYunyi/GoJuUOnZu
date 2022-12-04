@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import vue from '@vitejs/plugin-vue';
 import legacy from '@vitejs/plugin-legacy';
+import WindiCSS from 'vite-plugin-windicss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,5 +13,6 @@ export default defineConfig({
       includeAssets: ['**/*.png', '**/*.woff2'],
       registerType: 'autoUpdate',
     }),
+    WindiCSS(),
   ],
 });
