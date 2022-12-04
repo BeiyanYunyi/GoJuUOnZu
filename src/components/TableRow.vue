@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <table-item
+    <TableItem
       v-for="item in rowItems"
       :key="item[2] + item[0] ?? getUUID()"
       :hiragana="item[0]"

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <table-row v-for="(row, index) in goJuUOn" :key="index" :row-items="row" />
+    <TableRow v-for="(row, index) in goJuUOn" :key="index" :row-items="row" />
   </div>
 </template>
 

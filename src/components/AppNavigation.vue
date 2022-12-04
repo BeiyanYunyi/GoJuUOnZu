@@ -3,16 +3,16 @@
     class="text-neutral-100 flex gap-4 justify-center"
     style="margin-top: 1rem; margin-bottom: 1rem"
   >
-    <router-link to="/">
-      <app-card hoverable class="font-sans">Home</app-card>
-    </router-link>
-    <router-link to="/test">
-      <app-card hoverable class="font-sans">Test</app-card>
-    </router-link>
+    <RouterLink to="/">
+      <AppCard hoverable class="font-sans">Home</AppCard>
+    </RouterLink>
+    <RouterLink to="/test">
+      <AppCard hoverable class="font-sans">Test</AppCard>
+    </RouterLink>
     <a href="https://github.com/lixiang810/GoJuUOnZu">
-      <app-card hoverable>
-        <v-icon size="1rem"> <git-hub-icon /> </v-icon>
-      </app-card>
+      <AppCard hoverable>
+        <VIcon size="1rem"> <GitHubIcon /> </VIcon>
+      </AppCard>
     </a>
   </div>
 </template>

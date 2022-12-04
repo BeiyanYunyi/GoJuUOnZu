@@ -1,15 +1,15 @@
 <template>
   <div class="flex justify-center">
     <div class="flex flex-col items-center gap-4">
-      <test-card :data="value.map((idx) => flattenedGoJuUOn[idx])" />
-      <app-switch v-model="showConfig" label="Config" />
-      <app-card v-if="showConfig" :class="$style.scrollContainer">
+      <TestCard :data="value.map((idx) => flattenedGoJuUOn[idx])" />
+      <AppSwitch v-model="showConfig" label="Config" />
+      <AppCard v-if="showConfig" :class="$style.scrollContainer">
         <form class="flex flex-col">
           <label v-for="option in options" :key="option.value" style="padding: 4px">
             <input v-model="value" type="checkbox" :value="option.value" />{{ option.label }}
           </label>
         </form>
-      </app-card>
+      </AppCard>
     </div>
   </div>
 </template>

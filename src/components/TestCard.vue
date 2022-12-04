@@ -1,12 +1,12 @@
 <template>
-  <app-card class="flex flex-col gap-4 items-center font-sans">
+  <AppCard class="flex flex-col gap-4 items-center font-sans">
     <h3 class="text-lg">
       Type the romanji of this {{ katakana ? 'katakana' : 'hiragana' }} below:
     </h3>
-    <app-card>
+    <AppCard>
       <h3 class="text-3xl font-serif">{{ katakana ? target[1] : target[0] }}</h3>
-    </app-card>
-    <transition
+    </AppCard>
+    <Transition
       name="animate"
       @after-enter="hide"
       @after-leave="
@@ -17,30 +17,30 @@
       "
     >
       <p v-if="result === 'Correct!'">
-        <v-icon size="1rem" color="green"><check-icon /></v-icon>&emsp;Correct!
+        <VIcon size="1rem" color="green"><CheckIcon /></VIcon>&emsp;Correct!
       </p>
-    </transition>
-    <transition name="animate" @after-enter="hide" @after-leave="showPlaceHolder = true">
+    </Transition>
+    <Transition name="animate" @after-enter="hide" @after-leave="showPlaceHolder = true">
       <p v-if="result && result !== 'Correct!'">
-        <v-icon size="1rem" color="red"><times-icon /></v-icon>&emsp;{{ result }}
+        <VIcon size="1rem" color="red"><TimesIcon /></VIcon>&emsp;{{ result }}
       </p>
-    </transition>
+    </Transition>
     <p v-if="showPlaceHolder" style="opacity: 0">&emsp;</p>
     <form class="flex flex-col items-center gap-2" @submit="handleSubmit">
       <input v-model="answer" :class="$style.questionInput" />
       <div class="flex flex-row justify-center gap-4">
         <button type="submit" :disabled="!showPlaceHolder">
-          <app-card :hoverable="showPlaceHolder">Submit</app-card>
+          <AppCard :hoverable="showPlaceHolder">Submit</AppCard>
         </button>
         <button type="button" @click="handleRefresh">
-          <app-card hoverable>Refresh</app-card>
+          <AppCard hoverable>Refresh</AppCard>
         </button>
         <button type="button" @click="handleSwitch">
-          <app-card hoverable>{{ katakana ? 'hiragana' : 'katakana' }}</app-card>
+          <AppCard hoverable>{{ katakana ? 'hiragana' : 'katakana' }}</AppCard>
         </button>
       </div>
     </form>
-  </app-card>
+  </AppCard>
 </template>
 <script lang="ts" setup>
 import CheckIcon from '@vicons/fa/Check';

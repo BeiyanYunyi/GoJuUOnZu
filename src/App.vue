@@ -6,9 +6,13 @@
   >
     五十音テスト
   </h1>
-  <app-navigation />
-  <router-view />
-  <reload-prompt />
+  <AppNavigation />
+  <RouterView v-slot="{ Component, route }">
+    <KeepAlive :max="6">
+      <Component :is="Component" :key="route.meta.usePathKey ? route.path : undefined" />
+    </KeepAlive>
+  </RouterView>
+  <ReloadPrompt />
 </template>
 
 <script setup lang="ts">

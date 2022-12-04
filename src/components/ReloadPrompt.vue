@@ -1,16 +1,16 @@
 <template>
-  <app-card v-if="offlineReady || needRefresh" :class="$style['pwa-toast']">
+  <AppCard v-if="offlineReady || needRefresh" :class="$style['pwa-toast']">
     <div role="alert">
       <div :class="$style.message">
         <span v-if="offlineReady"> App ready to work offline </span>
         <span v-else> New content available, click on reload button to update. </span>
       </div>
       <button v-if="needRefresh" @click="updateServiceWorker()">
-        <app-card hoverable>Reload</app-card>
+        <AppCard hoverable>Reload</AppCard>
       </button>
-      <button @click="close"><app-card hoverable>Close</app-card></button>
+      <button @click="close"><AppCard hoverable>Close</AppCard></button>
     </div>
-  </app-card>
+  </AppCard>
 </template>
 
 <script setup lang="ts">
