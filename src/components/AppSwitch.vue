@@ -1,14 +1,8 @@
 <template>
-  <label
-    :class="$style.label"
-    class="inline-flex flex-row items-center gap-2 font-sans"
-    @click="$emit('update:modelValue', !modelValue)"
-  >
+  <label class="label" @click="$emit('update:modelValue', !modelValue)">
     {{ leftLabel }}
-    <div :class="{ [$style.innerContainer1]: true, [$style.innerContainer1Active]: modelValue }">
-      <div
-        :class="{ [$style.innerContainer2]: true, [$style.innerContainer2Active]: modelValue }"
-      />
+    <div :class="{ innerContainer1: true, innerContainer1Active: modelValue }">
+      <div :class="{ innerContainer2: true, innerContainer2Active: modelValue }" />
     </div>
     {{ label }}
   </label>
@@ -17,20 +11,12 @@
 defineProps<{ modelValue: boolean; label?: string; leftLabel?: string }>();
 defineEmits<{ (event: 'update:modelValue', value: boolean): void }>();
 </script>
-<style module>
+<style scoped>
 .label {
-  user-select: none;
-  cursor: pointer;
+  @apply cursor-pointer flex-row font-sans gap-2 inline-flex items-center select-none;
 }
 .innerContainer1 {
-  @apply text-neutral-100 tracking-wide;
-  display: inline-flex;
-  justify-content: left;
-  align-items: center;
-  padding: 4px;
-  width: 4rem;
-  height: 2rem;
-  border-radius: 0.5rem;
+  @apply tracking-wide text-neutral-100 inline-flex items-center p-1 w-16 h-8 rounded-lg;
   background: #161616;
   box-shadow: inset 0.2rem 0.2rem 1rem #090909, inset -0.2rem -0.2rem 1rem #2c2c2c;
 }

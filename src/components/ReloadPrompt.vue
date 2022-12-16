@@ -1,7 +1,7 @@
 <template>
-  <AppCard v-if="offlineReady || needRefresh" :class="$style['pwa-toast']">
+  <AppCard v-if="offlineReady || needRefresh" class="card">
     <div role="alert">
-      <div :class="$style.message">
+      <div class="innerCard">
         <span v-if="offlineReady"> App ready to work offline </span>
         <span v-else> New content available, click on reload button to update. </span>
       </div>
@@ -34,18 +34,11 @@ watch([offlineReady], () => {
   }
 });
 </script>
-
-<style module>
-.pwa-toast {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 16px;
-  padding: 12px;
-  z-index: 1;
-  text-align: left;
+<style scoped>
+.card {
+  @apply fixed right-0 bottom-0 m-4 p-3 z-1 text-left;
 }
-.pwa-toast .message {
-  margin-bottom: 8px;
+.innerCard {
+  @apply mb-8;
 }
 </style>

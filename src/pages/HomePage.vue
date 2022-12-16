@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.container">
+  <div class="homePage">
     <TableRow v-for="(row, index) in goJuUOn" :key="index" :row-items="row" />
   </div>
 </template>
@@ -8,12 +8,8 @@
 import goJuUOn from '../goJuUOn';
 import TableRow from '../components/TableRow.vue';
 </script>
-
-<style module>
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+<style scoped>
+.homePage {
+  @apply flex flex-col w-full items-center;
 }
 </style>

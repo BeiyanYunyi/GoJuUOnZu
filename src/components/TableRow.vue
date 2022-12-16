@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.container">
+  <div class="table-row">
     <TableItem
       v-for="item in rowItems"
       :key="item[2] + item[0] ?? getUUID()"
@@ -15,9 +15,8 @@ import TableItem from './TableItem.vue';
 defineProps<{ rowItems: [string, string, string][] }>();
 const getUUID = () => crypto.randomUUID();
 </script>
-<style module>
-.container {
-  display: flex;
-  flex-wrap: wrap;
+<style scoped>
+.table-row {
+  @apply flex flex-wrap;
 }
 </style>

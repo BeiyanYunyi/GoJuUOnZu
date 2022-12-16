@@ -1,11 +1,5 @@
 <template>
-  <h1
-    class="text-3xl font-bold text-neutral-100 font-serif"
-    :class="$style.mainTitle"
-    style="margin-top: 1rem"
-  >
-    五十音テスト
-  </h1>
+  <h1 class="h1">五十音テスト</h1>
   <AppNavigation />
   <RouterView v-slot="{ Component, route }">
     <KeepAlive :max="6">
@@ -31,8 +25,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
-<style module>
-.mainTitle {
-  text-align: center;
+<style scoped>
+.h1 {
+  @apply text-3xl font-bold text-neutral-100 font-serif text-center mt-4;
 }
 </style>

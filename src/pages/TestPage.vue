@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center">
-    <div class="flex flex-col items-center gap-4">
+  <div class="testPage">
+    <div class="innerTestPage">
       <TestCard :data="questionConfig.map((idx) => flattenedGoJuUOn[idx])" />
       <AppSwitch v-model="showConfig" label="Config" />
-      <AppCard v-if="showConfig" :class="$style.scrollContainer">
-        <form class="flex flex-col">
+      <AppCard v-if="showConfig" class="config">
+        <form class="form">
           <label v-for="option in options" :key="option.value" style="padding: 4px">
             <input v-model="questionConfig" type="checkbox" :value="option.value" />
             {{ option.label }}
@@ -28,10 +28,17 @@ const options = flattenedGoJuUOn.map((item, i) => ({
 }));
 const showConfig = ref(false);
 </script>
-<style module>
-.scrollContainer {
-  height: 50vh;
-  margin-bottom: 1rem;
-  overflow: auto;
+<style scoped>
+.testPage {
+  @apply flex justify-center;
+}
+.innerTestPage {
+  @apply flex flex-col items-center gap-4;
+}
+.config {
+  @apply h-[50vh] mb-4 overflow-auto;
+}
+.form {
+  @apply flex flex-col;
 }
 </style>

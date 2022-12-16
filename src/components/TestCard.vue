@@ -1,10 +1,8 @@
 <template>
-  <AppCard class="flex flex-col gap-4 items-center font-sans">
-    <h3 class="text-lg">
-      Type the romanji of this {{ katakana ? 'katakana' : 'hiragana' }} below:
-    </h3>
+  <AppCard class="card">
+    <h3 class="lgText">Type the romanji of this {{ katakana ? 'katakana' : 'hiragana' }} below:</h3>
     <AppCard>
-      <h3 class="text-3xl font-serif">{{ katakana ? target[1] : target[0] }}</h3>
+      <h3 class="xxxlText">{{ katakana ? target[1] : target[0] }}</h3>
     </AppCard>
     <Transition
       name="animate"
@@ -26,9 +24,9 @@
       </p>
     </Transition>
     <p v-if="showPlaceHolder" style="opacity: 0">&emsp;</p>
-    <form class="flex flex-col items-center gap-2" @submit="handleSubmit">
-      <input v-model="answer" :class="$style.questionInput" />
-      <div class="flex flex-row justify-center gap-4">
+    <form class="form" @submit="handleSubmit">
+      <input v-model="answer" class="questionInput" />
+      <div class="innerForm">
         <button type="submit" :disabled="!showPlaceHolder">
           <AppCard :hoverable="showPlaceHolder">Submit</AppCard>
         </button>
@@ -89,23 +87,32 @@ const hide = () => {
   }, 1000);
 };
 </script>
-<style module>
+<style scoped>
+.card {
+  @apply flex flex-col gap-4 items-center font-sans;
+}
+.lgText {
+  @apply text-lg;
+}
+.xxxlText {
+  @apply text-3xl font-serif;
+}
+.form {
+  @apply flex flex-col items-center gap-2;
+}
+.innerForm {
+  @apply flex flex-row justify-center gap-4;
+}
 .questionInput {
-  z-index: 1;
-  background-color: #161616;
-  padding: 8px;
-  width: fit-content;
-  border-radius: 0.5rem;
+  @apply z-1 bg-[#161616] p-2 w-[fit-content] rounded-lg;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: inset 0.1rem 0.1rem 0.25rem #090909, inset -0.1rem -0.1rem 0.25rem #2c2c2c;
 }
 
 .questionInput:focus {
-  outline: none;
+  @apply outline-none;
   box-shadow: inset 0.2rem 0.2rem 0.25rem #090909, inset -0.2rem -0.2rem 0.25rem #2c2c2c;
 }
-</style>
-<style scoped>
 @keyframes show {
   from {
     opacity: 0;
